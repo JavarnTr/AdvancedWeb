@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javascript</title>
+	<link rel="stylesheet" type="text/css" href="CSS/style.css">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+</head>
+
+<body class="d-flex flex-column min-vh-100">
+
+<header>	
+	<div class="container-fluid bg-success p-3">
+		<div class="row">
+			<div class="col-2">
+				<img src="MEDIA/global.png" class="img-fluid" alt="Responsive image">
+				ITWD6.408
+			</div>						
+			<div class="col-8">	  
+				<nav class="navbar navbar-expand-lg navbar-light">
+					  <div class="collapse navbar-collapse nav justify-content-center" id="navbarNav">
+						<ul class="navbar-nav nav nav-pills">
+						  <li class="nav-item">
+							<a class="nav-link" href="index.html">Home</a>
+						  </li>
+						  <li class="nav-item">
+							<a class="nav-link" href="forms.html">Forms</a>
+						  </li>
+						  <li class="nav-item">
+							<a class="nav-link" href="xml.html">XML/RSS</a>
+						  </li>
+						  <li class="nav-item active">
+							<a class="nav-link" href="js-demo.html">Javascript</a>
+						  </li>
+						  <li class="nav-item">
+							<a class="nav-link" href="research.html">Research</a>
+						  </li>
+						</ul>
+					  </div>
+					</nav>			  
+			</div>	
+			<div class="col-2 container text-center">
+				<div class="nav justify-content-end">
+					<div class="hamburger-menu">
+						<p onclick="openNav()">≡</p>
+					</div>												
+				</div>
+			</div>
+		</div>
+
+		<!--Mobile collapsable nav bar-->
+			<nav id="curtain-nav">
+			<!--Add a close button (X) hyperlink on the top left corner-->
+			<a href="javascript:void(0)" class="nav-close-button" onclick="closeNav()">❌</a>
+			<div class="curtain-nav-content">
+				<ul>
+					<li><a href="index.html">HOME</a></li>
+					<li><a href="forms.html">FORMS</a></li>
+					<li><a href="xml.html">XML/RSS</a></li>
+					<li class="active"><a href="js-demo.html">JAVASCRIPT</a></li>
+					<li><a href="research.html">RESEARCH</a></li>	
+				</ul>
+			</div>
+		</nav>
+</header>
+
+
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-12 col-md-2">
+				<div class="container-fluid">
+					<div class="row justify-content-around">
+						<!--Button 1-->			
+						<button class="col-6 col-md-12 btn btn-danger" type="button" 
+								data-bs-toggle="collapse" data-bs-target="#button1" 
+								aria-expanded="false" aria-controls="button1">Product Slideshows</button>
+						<!--Button 2-->
+						<button class="col-6 col-md-12 btn btn-warning" type="button" 
+								data-bs-toggle="collapse" data-bs-target="#button2" 
+								aria-expanded="false" aria-controls="button2">Dropdown Menu</button>
+						<!--Button 3-->		
+						<button class="col-6 col-md-12 btn btn-success" type="button" 
+								data-bs-toggle="collapse" data-bs-target="#button3" 
+								aria-expanded="false" aria-controls="button3">Comments</button>
+						<!--Button 4-->
+						<button class="col-6 col-md-12 btn btn-primary" type="button" 
+								data-bs-toggle="collapse" data-bs-target="#button4" 
+								aria-expanded="false" aria-controls="button4">Rating</button>								
+					</div>			
+				</div>			
+		</div>
+	
+		<div class="col-12 col-md-10">
+			<div class="row">
+				<div class="col-12">
+					<!--Content for button 1-->
+					<div class="collapse show multi-collapse" id="button1">
+					<div class="card card-body">
+						<!--Exercise 1: Slideshows-->
+						<h2 class="bg-warning">Product Slideshows</h2>
+						<section>
+							<h3>Manual Slideshow</h3>
+							<h4 id="manual-slide-title">EVGA GeForce RTX 3050 XC</h4>					
+							<p id="manual-slide-price">$499</p>
+							<img id="manual-slide-image" src="MEDIA/product0.jpg" height="250px">
+							<br>
+							<button onclick="previousMovie()">Back</button>
+							<button onclick="nextMovie()">Forward</button>
+						</section>
+						
+						<section>
+							<h3>Automatic Slideshow</h3>
+							<h4 id="auto-slide-title">EVGA GeForce RTX 3050 XC</h4>
+							<p id="auto-slide-price">$499</p>
+							<img id="auto-slide-image" src="MEDIA/product0.jpg" height="250px">		
+						</section>										
+					</div>
+					</div>
+				</div>
+				
+				<div class="col-12">
+					<!--Content for button 2-->
+					<div class="collapse multi-collapse" id="button2">
+					<div class="card card-body">
+						<!--Exercise 2: Dropdown-->
+						<h2 class="bg-warning">Dropdown Menu</h2>
+						<select id="myMovieList" onchange = "displayMovie()">
+						</select>
+						<br>
+						<section>
+							<h4 id="selectedMovieTitle">EVGA GeForce RTX 3050 XC</h4>
+							<p id="selectedMoviePrice">$499</p>
+							<img id="selectedMovieURL" src="MEDIA/product0.jpg" height="250px">
+						</section>	
+
+						<!--Exercise 3: Add new movie -->
+						<section>
+							<h4>Add a new product to the existing list: </h4>
+							<label>Title:</label> 					
+							<input type="text" class="form-control" id="myProductTitle" placeholder="Title">							
+							<br>
+							<label>Price:</label> 
+							<input type="number" class="form-control" id="myProductPrice" size="70" placeholder="Price">
+							<br>
+							<label>Image URL:</label> 
+							<input type="text" class="form-control" id="myProductImage" placeholder="URL">
+							<br>
+							<input type="button" value="Add to List" onclick="AddItemToList()">
+						</section>						
+					</div>
+					</div>
+				</div>
+				
+				<div class="col-12">
+					<!--Content for button 3-->
+					<div class="collapse multi-collapse" id="button3">
+					<div class="card card-body">
+						<!--Exercise 4: Comments-->
+						<h2 class="bg-warning">Comment on Product</h2>
+						<section>
+						<h4 id="myProductTitle">EVGA GeForce RTX 3050 XC</h4>
+						<p id="myProductPrice">499</p>
+						<img id="myProductImage" src="MEDIA/product0.jpg" height="300px">
+						<br>
+						<h4>Comments:</h4>
+						<div id="commentList"></div>						
+						<h4>Add Comment:</h4>
+						<label>Name:</label>
+						<br>
+						<div class="row mb-3">						
+							<div class="col-sm-10">
+							  <input type="address" class="form-control" id="commentName" required>
+							</div>
+						</div>				
+						<label for="commentText" class="col-sm-2 col-form-label">Comment: </label>	
+						<div class="row mb-3">											
+							<div class="col-sm-10">
+							  <textarea type="name" class="form-control" id="commentText"/></textarea>
+							</div>							
+						</div>				
+						<button onclick="addComment()">Submit</button>
+						</section>											
+					</div>
+					</div>
+				</div>
+				
+				<div class="col-12">
+					<!--Content for button 4-->
+					<div class="collapse multi-collapse" id="button4">
+						<div class="card card-body">
+							<!--Exercise 5-->
+							<h2 class="bg-warning">Like/Dislike</h2>
+							<section>
+								<h4 id="my-movieTitle">EVGA GeForce RTX 3050 XC</h4>
+								<p id="my-movieYear">499</p>
+								<img id="my-movieImageURL" src="MEDIA/product0.jpg" height="300px">
+								<br>
+								<button id="likeButton" onclick="like()">&#128077;</button>
+								<p id="likeNumber" style="display: inline-block;">0</p>
+								<button id="dislikeButton" onclick="dislike()">&#128078;</button>
+								<p id="dislikeNumber" style="display: inline-block;">0</p>
+							</section>							
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>	
+	</div>
+</div>
+
+<!---------------------------------------------------->	
+	<!--Footer section-->
+	<footer class="mt-auto">
+		<div>Created by: Javarn Tromp de Haas <br/>
+			Contact me at: <a href="TROMPJ1@student.eit.ac.nz">TROMPJ1@student.eit.ac.nz</a>
+		</div>
+	</footer>
+		
+	<!--Embed JS here-->
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>	
+	<script src="JS/javascript.js"></script>
+</body>
+
+</html>
